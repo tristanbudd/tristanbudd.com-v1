@@ -42,8 +42,7 @@ async function fetch_og_updated_time() {
         // Also updating the last updated time in the header bar.
         const last_updated_tag = document.getElementById('last-updated');
         if (last_updated_tag) {
-            const updated_time_formatted = new Date(updated_time).toLocaleString('en-GB', { timeZone: user_timezone });
-            last_updated_tag.innerText = updated_time_formatted;
+            last_updated_tag.innerText = new Date(updated_time).toLocaleString('en-GB', {timeZone: user_timezone});
         }
 
         console.log('Success | Last Updated Time Retrieved: ', updated_time);
@@ -83,3 +82,20 @@ function update_current_time() {
 
 update_current_time();
 setInterval(update_current_time, 1000);
+
+// Back to top button visibility and functionality.
+function scroll_to_top() {
+    globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+}
+
+function toggle_back_to_top_button() {
+    const back_to_top_button = document.getElementById('back-to-top-button');
+    if (globalThis.scrollY > 400) {
+        back_to_top_button.style.display = 'block';
+    } else {
+        back_to_top_button.style.display = 'none';
+    }
+}
+
+toggle_back_to_top_button();
+globalThis.addEventListener('scroll', toggle_back_to_top_button);
