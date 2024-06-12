@@ -195,6 +195,50 @@ input, textarea {
     color: var(--white);
 }
 
+/* Introduction Page */
+.introduction-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 52px;
+    margin-right: 52px;
+    gap: 52px;
+}
+
+.introduction {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    max-height: 750px;
+}
+
+.introduction h3 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
+.introduction h4 {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--white);
+}
+
+.star-system {
+    width: 70%;
+    display: block;
+    position: relative;
+    height: 100%;
+    max-height: 750px;
+    background-color: var(--grey);
+}
+
+
 /* Media Queries */
 @media screen and (max-width: 1384px) {
     .top-bar-right-group {
