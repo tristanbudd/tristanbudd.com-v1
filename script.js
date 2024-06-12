@@ -1,3 +1,7 @@
+// Setting the users local timezone so that clock works internationally.
+const user_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+console.log('Success | User Timezone Set: ', user_timezone);
+
 // Function to retrieve the last updated time from any public GitHub Repository.
 async function fetch_github_last_updated(owner, repository) {
     const url = `https://api.github.com/repos/${owner}/${repository}`;
@@ -34,6 +38,14 @@ async function fetch_og_updated_time() {
     const updated_time = await fetch_github_last_updated(owner, repository);
     if (updated_time) {
         update_meta_tag('og:updated_time', updated_time, 'property');
+
+        // Also updating the last updated time in the header bar.
+        const last_updated_tag = document.getElementById('last-updated');
+        if (last_updated_tag) {
+            const updated_time_formatted = new Date(updated_time).toLocaleString('en-GB', { timeZone: user_timezone });
+            last_updated_tag.innerText = updated_time_formatted;
+        }
+
         console.log('Success | Last Updated Time Retrieved: ', updated_time);
     } else {
         console.error('Error | No last updated time retrieved :( (fetch_og_updated_time)');
@@ -56,4 +68,18 @@ async function update_copyright_notice() {
     }
 }
 
-update_copyright_notice();
+update_copyright_notice().then(() => {}).catch((error) => {
+    console.error('Error | There was a problem attempting to update copyright notice (update_copyright_notice): ', error);
+});
+
+// Function to show an on-screen clock in the header bar and keep it updating every second.
+function update_current_time() {
+    const current_time = new Date().toLocaleTimeString('en-GB', { timeZone: user_timezone });
+    const current_time_tag = document.getElementById('current-time');
+    if (current_time_tag) {
+        current_time_tag.innerText = current_time;
+    }
+}
+
+update_current_time();
+setInterval(update_current_time, 1000);
