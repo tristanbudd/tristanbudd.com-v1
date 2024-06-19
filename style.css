@@ -240,6 +240,12 @@ input, textarea {
 
 
 /* Media Queries */
+@media screen and (max-width: 1400px) {
+    .top-bar-right-group:first-of-type {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 1279px) {
     .top-bar-right-group {
         display: none;
