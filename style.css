@@ -241,7 +241,7 @@ input, textarea {
 
 /* Media Queries */
 @media screen and (max-width: 1400px) {
-    .top-bar-right-group:first-of-type {
+    .top-bar-right-group:first-child {
         display: none;
     }
 }
