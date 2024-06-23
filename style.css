@@ -102,6 +102,7 @@ input, textarea {
     right: 24px;
     width: 90px;
     height: 90px;
+    z-index: 999;
 }
 
 .back-to-top-button a {
@@ -204,8 +205,37 @@ input, textarea {
 
 .scroll-section {
     height: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     border: 2px solid red;
 }
+
+.scroll-indicator {
+    position: fixed;
+    top: 50%;
+    right: 52px;
+    transform: translateY(-50%);
+    z-index: 999;
+}
+
+.scroll-indicator-item {
+    width: 10px;
+    height: 10px;
+    background-color: var(--white);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.scroll-indicator-item:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.scroll-indicator-item:hover,
+.scroll-indicator-item-active {
+    transform: scale(1.5);
+}
+
 
 /* Media Queries */
 @media screen and (max-width: 1400px) {

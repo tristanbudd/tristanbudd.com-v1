@@ -84,13 +84,15 @@ update_current_time();
 setInterval(update_current_time, 1000);
 
 // Back to top button visibility and functionality.
+const scroll_wrapper = document.querySelector('.scroll-wrapper');
+
 function scroll_to_top() {
-    globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    scroll_wrapper.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 }
 
 function toggle_back_to_top_button() {
     const back_to_top_button = document.getElementById('back-to-top-button');
-    if (globalThis.scrollY > 400) {
+    if (scroll_wrapper.scrollTop > 400) {
         back_to_top_button.style.display = 'block';
     } else {
         back_to_top_button.style.display = 'none';
@@ -98,33 +100,33 @@ function toggle_back_to_top_button() {
 }
 
 toggle_back_to_top_button();
-globalThis.addEventListener('scroll', toggle_back_to_top_button);
+scroll_wrapper.addEventListener('scroll', toggle_back_to_top_button);
 
-// Smooth Section Scroll Functionality
-const scroll_wrapper = document.querySelector('.scroll-wrapper');
-let is_scrolling;
-let last_scroll_top = scroll_wrapper.scrollTop;
+// Scroll indicator visibility and functionality.
+const container = document.querySelector(".scroll-wrapper");
+const sections = document.querySelectorAll(".scroll-section");
+const dots_container = document.querySelector(".scroll-indicator");
 
-scroll_wrapper.addEventListener('scroll', () => {
-    window.clearTimeout(is_scrolling);
-
-    is_scrolling = setTimeout(() => {
-        const scroll_sections = document.querySelectorAll('.scroll-section');
-        const scroll_position = scroll_wrapper.scrollTop;
-        const scroll_direction = scroll_position > last_scroll_top ? 'down' : 'up';
-        last_scroll_top = scroll_position;
-
-        let target_section;
-        scroll_sections.forEach((section, index) => {
-            if (scroll_direction === 'down' && scroll_position >= section.offsetTop && scroll_position < section.offsetTop + section.offsetHeight) {
-                target_section = scroll_sections[index + 1];
-            } else if (scroll_direction === 'up' && scroll_position <= section.offsetTop && scroll_position > section.offsetTop - section.offsetHeight) {
-                target_section = scroll_sections[index - 1];
-            }
-        });
-
-        if (target_section) {
-            target_section.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 150);
+sections.forEach((section, i) => {
+    const dot = document.createElement("div");
+    dot.classList.add("scroll-indicator-item");
+    dot.addEventListener("click", () => {
+        section.scrollIntoView({ behavior: "smooth" });
+    });
+    dots_container.appendChild(dot);
 });
+
+const first_dot = dots_container.querySelector(".scroll-indicator-item");
+if (first_dot) {
+    first_dot.classList.add("scroll-indicator-item-active");
+}
+
+function highlight_active_dot() {
+    const current_section = Math.round(container.scrollTop / window.innerHeight);
+    const dots = dots_container.querySelectorAll(".scroll-indicator-item");
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("scroll-indicator-item-active", index === current_section);
+    });
+}
+
+container.addEventListener("scroll", highlight_active_dot);
