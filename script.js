@@ -99,3 +99,32 @@ function toggle_back_to_top_button() {
 
 toggle_back_to_top_button();
 globalThis.addEventListener('scroll', toggle_back_to_top_button);
+
+// Smooth Section Scroll Functionality
+const scroll_wrapper = document.querySelector('.scroll-wrapper');
+let is_scrolling;
+let last_scroll_top = scroll_wrapper.scrollTop;
+
+scroll_wrapper.addEventListener('scroll', () => {
+    window.clearTimeout(is_scrolling);
+
+    is_scrolling = setTimeout(() => {
+        const scroll_sections = document.querySelectorAll('.scroll-section');
+        const scroll_position = scroll_wrapper.scrollTop;
+        const scroll_direction = scroll_position > last_scroll_top ? 'down' : 'up';
+        last_scroll_top = scroll_position;
+
+        let target_section;
+        scroll_sections.forEach((section, index) => {
+            if (scroll_direction === 'down' && scroll_position >= section.offsetTop && scroll_position < section.offsetTop + section.offsetHeight) {
+                target_section = scroll_sections[index + 1];
+            } else if (scroll_direction === 'up' && scroll_position <= section.offsetTop && scroll_position > section.offsetTop - section.offsetHeight) {
+                target_section = scroll_sections[index - 1];
+            }
+        });
+
+        if (target_section) {
+            target_section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 150);
+});
