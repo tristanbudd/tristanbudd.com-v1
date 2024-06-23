@@ -248,10 +248,16 @@ input, textarea {
     .top-bar-right-group {
         display: none;
     }
+    .scroll-indicator {
+        right: 32px;
+    }
 }
 
 @media screen and (max-width: 640px) {
     .top-bar {
         padding: 24px 24px 12px;
+    }
+    .scroll-indicator {
+        right: 24px;
     }
 }
