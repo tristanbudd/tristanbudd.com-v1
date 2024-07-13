@@ -244,6 +244,11 @@ input, textarea {
     padding: 52px 52px 30px;
 }
 
+.section-inner {
+    display: flex;
+    flex-direction: row;
+}
+
 .section-heading {
     display: flex;
     flex-direction: column;
@@ -266,8 +271,137 @@ input, textarea {
     color: var(--grey);
 }
 
-/* Landing Page */
+/* Index Section */
+.temp {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-align: center;
+    line-height: 28px;
+}
 
+/* About Me Section */
+.section-profile {
+    width: 25%;
+    padding-top: 52px;
+    padding-bottom: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-profile img {
+    width: 256px;
+    height: 256px;
+}
+
+.section-profile h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.section-profile h3 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
+.profile-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-tab {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+}
+
+.profile-tab h5 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--white)
+}
+
+.section-hobbies-interests {
+    width: 75%;
+    padding: 52px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-hobbies-interests h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 38px;
+}
+
+.section-hobbies-interests h3 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
+.section-hobbies-interests-content {
+    padding-top: 52px;
+    padding-bottom: 52px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.hobbies-interests-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.hobbies-interests-tab-separator {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: var(--white);
+}
+
+.hobbies-interests-tab i {
+    font-size: 64px;
+    border-radius: 50%;
+    padding: 32px;
+    border: var(--white) 3px solid;
+    color: var(--white);
+}
+
+.hobbies-interests-tab h1 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 38px;
+}
+
+.hobbies-interests-tab p {
+    font-size: 16px;
+    color: var(--white);
+}
 
 /* Media Queries */
 @media screen and (max-width: 1400px) {
@@ -283,6 +417,17 @@ input, textarea {
     .section-container {
         padding: 32px 32px 30px;
     }
+    .section-hobbies-interests-content {
+        flex-direction: column;
+    }
+    .hobbies-interests-tab {
+        flex-direction: row;
+        gap: 32px;
+    }
+    .hobbies-interests-tab-separator {
+        width: 100%;
+        height: 2px;
+    }
 }
 
 @media screen and (max-width: 1279px) {
@@ -292,6 +437,33 @@ input, textarea {
     .back-to-top-button {
         width: 72px;
         height: 72px;
+    }
+}
+
+@media screen and (max-width: 1155px) {
+    .hobby-description {
+        display: none;
+    }
+    .hobbies-interests-tab-separator {
+        display: none;
+    }
+    .section-hobbies-interests {
+        width: 50%;
+    }
+    .section-profile {
+        width: 50%;
+    }
+    .hobbies-interests-tab {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .section-hobbies-interests {
+        display: none;
+    }
+    .section-profile {
+        width: 100%;
     }
 }
 
@@ -310,5 +482,10 @@ input, textarea {
     }
     .section-heading h1 {
         font-size: 32px;
+    }
+    .temp {
+        text-align: left;
+        font-size: 90%;
+        padding: 24px;
     }
 }
