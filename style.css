@@ -490,17 +490,7 @@ input, textarea {
     }
 }
 
-@media screen and (max-height: 800px) {
-    .scroll-indicator {
-        display: none;
-    }
-    .scroll-wrapper {
-        scroll-snap-type: none;
-        scroll-behavior: unset;
-    }
-}
-
-@media screen and (max-width: 340px) {
+@media (max-width: 340px) or (max-height: 800px) {
     .back-to-top-button {
         width: 0;
         height: 0;
