@@ -489,3 +489,34 @@ input, textarea {
         padding: 24px;
     }
 }
+
+@media screen and (max-height: 800px) {
+    .scroll-indicator {
+        display: none;
+    }
+    .scroll-wrapper {
+        scroll-snap-type: none;
+        scroll-behavior: unset;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .back-to-top-button {
+        width: 0;
+        height: 0;
+    }
+    .section-heading h1 {
+        font-size: 24px;
+    }
+    .scroll-section {
+        overflow: hidden;
+        height: auto;
+    }
+    .scroll-indicator {
+        display: none;
+    }
+    .scroll-wrapper {
+        scroll-snap-type: none;
+        scroll-behavior: unset;
+    }
+}
