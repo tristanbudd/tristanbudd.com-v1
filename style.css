@@ -490,7 +490,7 @@ input, textarea {
     }
 }
 
-@media (max-width: 340px) or (max-height: 800px) {
+@media (max-width: 340px) or (max-height: 745px) {
     .back-to-top-button {
         width: 0;
         height: 0;
