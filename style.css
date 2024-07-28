@@ -300,6 +300,7 @@ input, textarea {
 .section-profile img {
     width: 256px;
     height: 256px;
+    filter: drop-shadow(0 0 32px var(--white));
 }
 
 .section-profile h1 {
