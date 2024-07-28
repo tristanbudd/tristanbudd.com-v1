@@ -147,3 +147,14 @@ function calculate_age() {
 }
 
 calculate_age()
+
+// Function to copy the email address to the clipboard.
+function copy_email_address() {
+    const email_address = 'tristanbudd@outlook.com';
+    navigator.clipboard.writeText(email_address).then(() => {
+        console.log('Success | Email address copied to clipboard: ', email_address);
+        alert('Email address copied to clipboard!');
+    }).catch((error) => {
+        console.error('Error | Unable to copy email address to clipboard: ', error);
+    });
+}

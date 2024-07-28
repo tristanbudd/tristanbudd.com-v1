@@ -249,6 +249,11 @@ input, textarea {
     flex-direction: row;
 }
 
+.section-inner-flex {
+    display: flex;
+    flex-direction: row;
+}
+
 .section-heading {
     display: flex;
     flex-direction: column;
@@ -469,6 +474,154 @@ input, textarea {
     background-color: var(--white);
 }
 
+/* Contact Section */
+.section-contact-left {
+    width: 50%;
+    padding-top: 52px;
+    padding-bottom: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-contact-left-inner {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+
+.section-contact-left h1,
+.section-contact-right h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 38px;
+}
+
+.section-contact-left h3,
+.section-contact-right h3 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
+.section-contact-left ul {
+    list-style: initial;
+    padding-left: 16px;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-method {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--white);
+}
+
+.contact-method:hover {
+    .contact-method-end {
+        background-color: var(--white);
+        color: var(--black);
+        transition: background-color 0.3s ease-in;
+    }
+}
+
+.contact-method label {
+    display: none;
+}
+
+.contact-method-start {
+    font-size: 20px;
+    padding: 10px;
+    border: var(--white) 2px solid;
+    border-right: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.contact-method-end {
+    font-size: 20px;
+    padding: 10px;
+    border: var(--white) 2px solid;
+    border-left: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: background-color 0.3s ease-in;
+}
+
+.contact-method h4 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: var(--white) 2px solid;
+}
+
+.section-contact-right {
+    width: 50%;
+    padding-top: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-contact-right-inner {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    color: var(--white);
+    border: var(--white) 2px solid;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+    border-radius: 16px;
+}
+
+.social-link p {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+.social-link i {
+    font-size: 24px;
+}
+
+.social-link:hover {
+    background-color: var(--white);
+    color: var(--black);
+    transition: background-color 0.3s ease-in;
+}
+
+.contact-method-email-small {
+    display: none;
+}
+
 /* Media Queries */
 @media screen and (max-width: 1400px) {
     .ready-to-remove {
@@ -522,6 +675,18 @@ input, textarea {
     .hobbies-interests-tab {
         text-align: left;
     }
+    .section-contact-left {
+        width: 100%;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    .section-contact-right {
+        width: 100%;
+        padding-top: 0;
+    }
+    .section-inner-flex {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -554,9 +719,15 @@ input, textarea {
         font-size: 90%;
         padding: 24px;
     }
+    .contact-method-email-big {
+        display: none;
+    }
+    .contact-method-email-small {
+        display: block;
+    }
 }
 
-@media (max-width: 340px) or (max-height: 745px) or (min-height: 1080px) {
+@media (max-width: 370px) or (max-height: 745px) or (min-height: 1080px) {
     .back-to-top-button {
         width: 0;
         height: 0;
@@ -574,5 +745,8 @@ input, textarea {
     .scroll-wrapper {
         scroll-snap-type: none;
         scroll-behavior: unset;
+    }
+    .contact-method-email-small {
+        display: none !important;
     }
 }
