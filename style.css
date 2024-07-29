@@ -87,6 +87,7 @@ input, textarea {
 
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
     background-color: var(--pure-black);
 }
 
@@ -415,6 +416,7 @@ input, textarea {
     flex-direction: column;
     padding-top: 52px;
     padding-bottom: 52px;
+    overflow-x: hidden;
 }
 
 .section-experience h1 {
@@ -447,6 +449,7 @@ input, textarea {
     font-weight: 600;
     letter-spacing: 0.2em;
     color: var(--white);
+    padding-bottom: 12px;
 }
 
 .experience-row {
@@ -454,7 +457,9 @@ input, textarea {
     flex-direction: row;
     gap: 32px;
     margin-top: 24px;
-    flex-wrap: wrap;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 }
 
 .experience-tab {
@@ -473,6 +478,37 @@ input, textarea {
 .bar-fill {
     height: 100%;
     background-color: var(--white);
+}
+
+.example-bar {
+    width: 256px;
+    height: 12px;
+    border: var(--light-grey) 2px solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.bar-fill-example {
+    height: 100%;
+    width: 25%;
+}
+
+.bar-fill-example:first-child:after {
+    background: none !important;
+}
+
+.bar-fill-example:after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 2px;
+    background-color: var(--white);
+}
+
+.experience-key {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
 
 /* Contact Section */
@@ -728,6 +764,12 @@ input, textarea {
     }
 }
 
+@media screen and (max-width: 420px) {
+    .example-bar {
+        width: 200px;
+    }
+}
+
 @media (max-width: 370px) or (max-height: 745px) or (min-height: 1080px) {
     .back-to-top-button {
         width: 0;
@@ -749,5 +791,8 @@ input, textarea {
     }
     .contact-method-email-small {
         display: none !important;
+    }
+    .example-bar {
+        width: 150px;
     }
 }
