@@ -724,7 +724,9 @@ input, textarea {
     .section-inner-flex {
         flex-direction: column;
     }
-    .section-experience {
+    .section-experience,
+    .section-profile,
+    .section-hobbies-interests {
         padding-top: 24px;
     }
 }
