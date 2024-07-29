@@ -724,6 +724,9 @@ input, textarea {
     .section-inner-flex {
         flex-direction: column;
     }
+    .section-experience {
+        padding-top: 24px;
+    }
 }
 
 @media screen and (max-width: 700px) {
