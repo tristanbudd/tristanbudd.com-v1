@@ -278,14 +278,15 @@ input, textarea {
 }
 
 /* Index Section */
-.temp {
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-align: center;
-    line-height: 28px;
+.landing-image {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.landing-image img {
+    width: auto;
+    max-height: 100%;
 }
 
 /* About Me Section */
