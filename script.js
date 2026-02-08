@@ -133,17 +133,17 @@ container.addEventListener("scroll", highlight_active_dot);
 
 // Function to calculate my age and update it on screen.
 function calculate_age() {
-    const birth_date = new Date('2006-07-04');
-    const age_diff = Date.now() - birth_date.getTime();
-    const age_date = new Date(age_diff);
-    const age = Math.abs(age_date.getUTCFullYear() - 2006);
-    const age_display = document.getElementById('age-display');
-    if (age_display) {
-        age_display.innerText = age;
-        console.log('Success | Updated age to: ', age);
-    } else {
-        console.error('Error | Unable to calculate current age :( (calculate_age)');
-    }
+  const birthDate = new Date("2006-07-04");
+  const today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  document.getElementById("age-display").innerText = age;
 }
 
 calculate_age()
